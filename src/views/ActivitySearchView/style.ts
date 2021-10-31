@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     maxWidth: "237px",
     height: "100vh",
     boxShadow: "1px 0px 2px rgba(0, 0, 0, 0.16)",
-    padding: "34px 0px 0px 21px",
+    padding: "34px 21px 0px 20px",
   },
   gridPlusSearch: {
     width: "100%",

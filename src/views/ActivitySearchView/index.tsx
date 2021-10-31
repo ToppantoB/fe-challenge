@@ -2,7 +2,7 @@ import React from "react";
 
 import useStyles from "./style";
 import SportTile from "../../components/SportTile";
-import { Grid } from "@mui/material";
+import { Grid, Slider, Radio } from "@mui/material";
 import EversportsLogoIcon from "../../assets/icons/EversportsLogo";
 
 const ActivitySearch = () => {
@@ -12,6 +12,41 @@ const ActivitySearch = () => {
     <div className={style.main}>
       <div className={style.filterBar}>
         <EversportsLogoIcon width="196" />
+        <Slider
+          getAriaLabel={() => "Temperature range"}
+          // value={value}
+          // onChange={handleChange}
+          valueLabelDisplay="auto"
+          // getAriaValueText={valuetext}
+        />
+        <Radio
+          checked={false}
+          //onChange={handleChange}
+          value="a"
+          name="radio-buttons"
+          inputProps={{ "aria-label": "1 & Up" }}
+        />
+        <Radio
+          checked={false}
+          //onChange={handleChange}
+          value="a"
+          name="radio-buttons"
+          inputProps={{ "aria-label": "2 & Up" }}
+        />
+        <Radio
+          checked={false}
+          //onChange={handleChange}
+          value="a"
+          name="radio-buttons"
+          inputProps={{ "aria-label": "3 & Up" }}
+        />
+        <Radio
+          checked={true}
+          //onChange={handleChange}
+          value="a"
+          name="radio-buttons"
+          inputProps={{ "aria-label": "4 & Up" }}
+        />
       </div>
       <div className={style.gridPlusSearch}>
         <div className={style.search}></div>
