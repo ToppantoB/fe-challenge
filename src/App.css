@@ -1,38 +1,191 @@
 .App {
-  text-align: center;
+  color: #333333;
+  font-family: "Ubuntu, Arial, serif";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 100;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Ultralight.otf) format("opentype");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 100;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-UltralightItalic.otf) format("opentype");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 200;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Thin.otf) format("opentype");
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 200;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-ThinItalic.otf) format("opentype");
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 300;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Light.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 300;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-LightItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 400;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 400;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-RegularItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 500;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Medium.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 500;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-MediumItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 600;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Semibold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 600;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-SemiboldItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 700;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 700;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-BoldItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 800;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Heavy.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 800;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-HeavyItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-weight: 900;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-Black.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF-Pro-Text";
+  font-style: italic;
+  font-weight: 900;
+  src: local("SF-Pro-Text"),
+    url(./assets/fonts/SF-Pro-Text-BlackItalic.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 300;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 300;
+  font-style: italic;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-LightItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 400;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 400;
+  font-style: italic;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 500;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 500;
+  font-style: italic;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-MediumItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-style: italic;
+  src: local("Ubuntu"), url(./assets/fonts/Ubuntu-BoldItalic.ttf) format("truetype");
 }
