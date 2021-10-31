@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: "12px",
     display: "flex",
     flexDirection: "row",
+    "@media (max-width: 800px)": {
+      borderRadius: "0px",
+      borderWidth: "0px",
+      borderBottomWidth: "1px",
+    },
   },
   coverImage: {
     height: "148px",
@@ -15,6 +20,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     objectFit: "cover",
     verticalAlign: "middle",
     marginRight: "16px",
+
+    "@media (max-width: 1000px)": {
+      display: "none",
+    },
   },
   details: {
     fontFamily: "SF-Pro-Text, Arial, serif",

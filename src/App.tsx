@@ -1,5 +1,5 @@
 import "./App.css";
-import ActivitySearch from "./views/ActivitySearch";
+import ActivitySearch from "./views/ActivitySearchView";
 import { ThemeProvider } from "@mui/material";
 import AppTheme from "./styles";
 
