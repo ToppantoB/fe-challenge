@@ -5,32 +5,8 @@ import capitalize from "@mui/utils/capitalize";
 
 import useStyles from "./style";
 
-const SportTile = () => {
+const SportTile = ({ data }: any) => {
   const style = useStyles();
-
-  const data = {
-    uuid: "56da8534-c323-4ab0-bbb1-1003d9f45cde",
-    city: "Vienna",
-    country: "Austria",
-    street: "Kellen Stravenue",
-    zip: "81827-1214",
-    name: "laborum veniam",
-    venueName: "Hilpert, Cartwright and Block",
-    venuePictureUrl: "https://picsum.photos/640/480",
-    pictureUrl: "https://picsum.photos/400/200",
-    startTime:
-      "Fri Jun 17 2022 12:00:00 GMT+0200 (Central European Summer Time)",
-    endTime: "Fri Jun 17 2022 13:30:00 GMT+0200 (Central European Summer Time)",
-    slotsOpen: 2,
-    slotsTotal: 5,
-    rating: 2,
-    ratings: 349,
-    fromPrice: 19,
-    currencySymbol: "€",
-    isOnline: true,
-    isFullyBooked: false,
-    sport: "yoga",
-  };
 
   const startTime = new Date(data.startTime).toUTCString().slice(0, 11);
 

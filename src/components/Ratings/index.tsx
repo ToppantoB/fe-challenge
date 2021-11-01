@@ -18,6 +18,7 @@ const Ratings = ({ rating }: RatingsProps) => {
         emptyIcon={<StarIcon />}
         name="half-rating"
         defaultValue={rating}
+        value={rating}
         precision={0.5}
         readOnly
       />
