@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: "12px",
     display: "flex",
     flexDirection: "row",
-    "@media (max-width: 800px)": {
+    "@media (max-width: 944px)": {
       borderRadius: "0px",
       borderWidth: "0px",
       borderBottomWidth: "1px",
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     verticalAlign: "middle",
     marginRight: "16px",
 
-    "@media (max-width: 1000px)": {
+    "@media (max-width: 1269px)": {
       display: "none",
     },
   },

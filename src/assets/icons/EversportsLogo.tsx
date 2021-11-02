@@ -1,9 +1,5 @@
 import { IconProps } from "../../types";
 
-type EversportsLogoIcon = {
-  width: string;
-};
-
 const EversportsLogoIcon = ({ width = "160" }: IconProps) => {
   return (
     <svg

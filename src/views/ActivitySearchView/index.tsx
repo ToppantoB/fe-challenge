@@ -4,13 +4,12 @@ import useStyles from "./style";
 import SportTile from "../../components/SportTile";
 import { Grid } from "@mui/material";
 import EversportsLogoIcon from "../../assets/icons/EversportsLogo";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectFilteredActivities } from "../../features/activities/activitiesSlice";
 import ActivitySearchSidebar from "./ActivitySearchSidebar";
 import ActivitySearchTopbar from "./ActivitySearchTopbar";
 
 const ActivitySearch = () => {
-  const dispatch = useDispatch();
   const style = useStyles();
   const filteredActivities = useSelector(selectFilteredActivities);
 
@@ -21,6 +20,11 @@ const ActivitySearch = () => {
         <ActivitySearchSidebar />
       </div>
       <div className={style.gridPlusSearch}>
+        {
+          <div className={style.mobilHeader}>
+            <EversportsLogoIcon width="196" />
+          </div>
+        }
         <div className={style.search}>
           <ActivitySearchTopbar />
         </div>

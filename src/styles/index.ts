@@ -4,9 +4,9 @@ const AppTheme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
+      sm: 670,
+      md: 945,
+      lg: 1270,
       xl: 1536,
     },
   },

@@ -1,6 +1,8 @@
-import React, { SyntheticEvent, useState } from "react";
+import React from "react";
 import {
+  Dialog,
   FormControl,
+  IconButton,
   InputLabel,
   MenuItem,
   OutlinedInput,
@@ -13,14 +15,17 @@ import { useTheme } from "@mui/material/styles";
 import useStyles from "./style";
 
 import {
-  selectSportStypesFilter,
+  selectSportstypesFilter,
   setSportTypes,
   selectDateFilter,
   setDate,
 } from "../../../features/filters/filtersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { DatePicker, LocalizationProvider } from "@mui/lab";
+import TuneIcon from "@mui/icons-material/Tune";
+
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import ActivitySearchSidebar from "../ActivitySearchSidebar";
 
 const sportOptions = ["yoga", "pilates", "crossfit", "fitness"];
 
@@ -49,7 +54,7 @@ const ActivitySearchTopbar = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  const sports = useSelector(selectSportStypesFilter);
+  const sports = useSelector(selectSportstypesFilter);
   const date = useSelector(selectDateFilter);
 
   const handleSportsChange = (event: SelectChangeEvent<typeof sports>) => {
@@ -65,8 +70,41 @@ const ActivitySearchTopbar = () => {
     dispatch(setDate(value ? value.toString() : value));
   };
 
+  ///
+  const [open, setOpen] = React.useState(false);
+
+  const openDialog = () => {
+    setOpen(true);
+  };
+
+  const closeDialog = () => {
+    setOpen(false);
+  };
+
+  ///
+
   return (
-    <>
+    <div className={style.formContainer}>
+      <div className={style.mobileMenu}>
+        <IconButton
+          aria-label="open filters"
+          color={"primary"}
+          onClick={openDialog}
+        >
+          <TuneIcon />
+        </IconButton>
+        <Dialog
+          onBackdropClick={closeDialog}
+          open={open}
+          PaperProps={{
+            style: {
+              padding: "10px 30px",
+            },
+          }}
+        >
+          <ActivitySearchSidebar />
+        </Dialog>
+      </div>
       <FormControl sx={{ m: 1, width: 200 }}>
         <InputLabel id="filter-by-sport-label">Sports</InputLabel>
         <Select
@@ -101,7 +139,7 @@ const ActivitySearchTopbar = () => {
           />
         </LocalizationProvider>
       </FormControl>
-    </>
+    </div>
   );
 };
 

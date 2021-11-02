@@ -8,7 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectRatingFilter,
   setRating,
-  setPriceRange,
+  setPriceRange as setPriceRangeFilter,
+  selectFilterCount,
+  resetFilters,
+  selectSportstypesFilter,
+  selectDateFilter,
+  selectPriceRangeFilter,
 } from "../../../features/filters/filtersSlice";
 import Ratings from "../../../components/Ratings";
 import { selectPriceRange } from "../../../features/activities/activitiesSlice";
@@ -32,17 +37,60 @@ const radioButtons = [
   },
 ];
 
+const createFilterText = (
+  priceFilter: number[],
+  priceRange: number[],
+  ratingFilter: number,
+  sportTypes: string[],
+  date: string | null
+) => {
+  let priceText = "";
+  let ratingText = "";
+  let sportTypesText = "";
+  let dateText = "";
+
+  if (priceFilter[0] > priceRange[0]) {
+    priceText += `from ${priceFilter[0]} euros `;
+  }
+
+  if (priceFilter[1] < priceRange[1]) {
+    priceText += `up to ${priceFilter[1]} euros `;
+  }
+
+  if (ratingFilter !== 1) {
+    ratingText = `${ratingFilter} & up`;
+  }
+
+  if (sportTypes.length) {
+    sportTypesText = sportTypes.join(" & ");
+  }
+
+  if (date !== null) {
+    dateText = `${date.slice(0, 3)},${date.slice(3, 10)}`;
+  }
+
+  return [priceText, ratingText, sportTypesText, dateText]
+    .filter((t) => t)
+    .join(" • ");
+};
+
 const ActivitySearchSidebar = () => {
   const style = useStyles();
   const dispatch = useDispatch();
-  const [priceFilter, setPriceFilter] = useState([0, 9999]);
 
   const ratingFilter = useSelector(selectRatingFilter);
   const priceRange = useSelector(selectPriceRange);
+  const filterCount = useSelector(selectFilterCount);
+  const priceFilter = useSelector(selectPriceRangeFilter);
+  const sportTypes = useSelector(selectSportstypesFilter);
+  const date = useSelector(selectDateFilter);
 
+  // we have to store the controlled component's state locally
+  // otherwise the UI of the slider only updates after the mouseUp event is fired
+  const [localPriceFilter, setLocalPriceFilter] = useState(priceFilter);
 
   const handlePriceFilterChange = (event: Event, value: number | number[]) => {
-    setPriceFilter(value as number[]);
+    setLocalPriceFilter(value as number[]);
   };
 
   // we only want to update the filter if the use released the slider
@@ -51,19 +99,43 @@ const ActivitySearchSidebar = () => {
     event: Event | SyntheticEvent,
     value: number | number[]
   ) => {
-    dispatch(setPriceRange(value as number[]));
+    dispatch(setPriceRangeFilter(value as number[]));
   };
 
   const handleRatingFilterChange = (value: number) => {
     dispatch(setRating(value));
   };
 
+  const handleResetClick = () => {
+    setLocalPriceFilter(priceRange);
+    dispatch(resetFilters());
+  };
+
   return (
     <>
+      <div className={style.filters}>
+        <h4 className={style.title}>{`${filterCount} FILTER`}</h4>
+        {filterCount > 0 && (
+          <>
+            <span className={style.filterText}>
+              {createFilterText(
+                priceFilter,
+                priceRange,
+                ratingFilter,
+                sportTypes,
+                date
+              )}
+            </span>
+            <span onClick={handleResetClick} className={style.clearAllButton}>
+              Clear all
+            </span>
+          </>
+        )}
+      </div>
       <h4 className={style.title}>PRICE RANGE</h4>
       <Slider
         getAriaLabel={() => "Price filter range"}
-        value={priceFilter}
+        value={localPriceFilter}
         onChange={handlePriceFilterChange}
         onChangeCommitted={savePriceFilter}
         valueLabelDisplay="auto"
@@ -74,13 +146,21 @@ const ActivitySearchSidebar = () => {
         <div className={style.priceDisplay}>
           <span className={style.priceFilterLabel}>From</span>
           <PriceChip
-            text={priceFilter[0] <= priceRange[0] ? "Minimum" : priceFilter[0]}
+            text={
+              localPriceFilter[0] <= priceRange[0]
+                ? "Minimum"
+                : localPriceFilter[0]
+            }
           />
         </div>
         <div className={style.priceDisplay}>
           <span className={style.priceFilterLabel}>To</span>
           <PriceChip
-            text={priceFilter[1] >= priceRange[1] ? "Maximum" : priceFilter[1]}
+            text={
+              localPriceFilter[1] >= priceRange[1]
+                ? "Maximum"
+                : localPriceFilter[1]
+            }
           />
         </div>
       </div>

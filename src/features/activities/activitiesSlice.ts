@@ -43,7 +43,7 @@ export const selectFilteredActivities = createSelector(
 const areDatesOnSameDay = (date1: string, date2: string) => {
   const d1 = new Date(date1);
   const d2 = new Date(date2);
-  
+
   return (
     d1.getFullYear() === d2.getFullYear() &&
     d1.getMonth() === d2.getMonth() &&
@@ -51,7 +51,7 @@ const areDatesOnSameDay = (date1: string, date2: string) => {
   );
 };
 
-export const selectPriceRange = createSelector(selectActivities, (activities) =>
+export const selectPriceRangeFunc = (activities: Activity[]) =>
   activities.reduce(
     (range, act) => {
       if (act.fromPrice < range[0]) {
@@ -63,7 +63,11 @@ export const selectPriceRange = createSelector(selectActivities, (activities) =>
       return range;
     },
     [9999, 0]
-  )
+  );
+
+export const selectPriceRange = createSelector(
+  selectActivities,
+  selectPriceRangeFunc
 );
 
 export default activitiesSlice.reducer;
