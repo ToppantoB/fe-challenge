@@ -74,7 +74,7 @@ const createFilterText = (
     .join(" • ");
 };
 
-const ActivitySearchSidebar = () => {
+const ActivitySearchFilters = () => {
   const style = useStyles();
   const dispatch = useDispatch();
 
@@ -165,8 +165,11 @@ const ActivitySearchSidebar = () => {
         </div>
       </div>
       <h4 className={style.title}>REVIEWS</h4>
-      {radioButtons.map((rb) => (
-        <label className={style.radioButtonContainer}>
+      {radioButtons.map((rb, i) => (
+        <label
+          key={`ratings-radio-${i}`}
+          className={style.radioButtonContainer}
+        >
           <Radio
             checked={ratingFilter === rb.value}
             onChange={() => handleRatingFilterChange(rb.value)}
@@ -174,11 +177,11 @@ const ActivitySearchSidebar = () => {
             inputProps={{ "aria-label": rb.ariaLabel }}
           />
           <Ratings rating={rb.value} />
-          <span>{"& Up"}</span>
+          <span className={style.ratingText}>{"& Up"}</span>
         </label>
       ))}
     </>
   );
 };
 
-export default ActivitySearchSidebar;
+export default ActivitySearchFilters;

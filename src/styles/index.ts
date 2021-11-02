@@ -14,10 +14,14 @@ const AppTheme = createTheme({
     primary: {
       main: "#21A696",
     },
+    secondary: {
+      main: "#DDDDDD"
+    },
     text: {
       primary: "#333333",
       secondary: "#808080",
     },
+
   },
 });
 

@@ -3,6 +3,9 @@ import activities from "./activities.json";
 import { Activity } from "../../types";
 import { RootState } from "../../store/store";
 
+// Considering the current complexity of the app, this slice could be unnecessary
+// but keeping a larger application in mind (querying the activites etc..), 
+// a separate slice would be needed for the activites. That's why it was created. 
 export interface ActivitiesState {
   activities: Activity;
 }

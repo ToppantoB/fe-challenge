@@ -25,7 +25,7 @@ import { DatePicker, LocalizationProvider } from "@mui/lab";
 import TuneIcon from "@mui/icons-material/Tune";
 
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import ActivitySearchSidebar from "../ActivitySearchSidebar";
+import ActivitySearchFilters from "../ActivitySearchFilters";
 
 const sportOptions = ["yoga", "pilates", "crossfit", "fitness"];
 
@@ -102,7 +102,7 @@ const ActivitySearchTopbar = () => {
             },
           }}
         >
-          <ActivitySearchSidebar />
+          <ActivitySearchFilters />
         </Dialog>
       </div>
       <FormControl sx={{ m: 1, width: 200 }}>

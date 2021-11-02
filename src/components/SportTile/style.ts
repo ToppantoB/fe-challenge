@@ -3,7 +3,7 @@ import { Theme } from "@mui/material";
 
 const useStyles = makeStyles((theme: Theme) => ({
   tile: {
-    border: "1px solid #DDDDDD",
+    border: `1px solid ${theme.palette.secondary.main}`,
     borderRadius: "8px",
     padding: "12px",
     display: "flex",
@@ -29,11 +29,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: "SF-Pro-Text, Arial, serif",
     fontSize: "12px",
     width: "100%",
+    overflow: "hidden",
   },
   title: {
     fontSize: "18px",
     lineHeight: "21px",
     margin: "0px 0px 8px 0px",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    width: "100%",
   },
   spotsAndDate: {
     display: "flex",
@@ -81,8 +86,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     objectFit: "cover",
     verticalAlign: "middle",
     margin: "0px 8px 0px 8px",
-    border: " 0.5px solid #DDDDDD",
+    border: `0.5px solid ${theme.palette.secondary.main}`,
   },
+  venueName: {
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    overflow: 'hidden'
+  },
+  redText: {
+    color: 'red'
+  }
 }));
 
 export default useStyles;

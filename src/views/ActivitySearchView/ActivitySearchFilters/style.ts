@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     paddingBottom: "16px",
     marginBottom: "16px",
-    borderBottom: "1px solid #DDDDDD",
+    borderBottom: `1px solid ${theme.palette.secondary.main}`,
   },
   priceDisplay: {
     display: "flex",
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "12px",
     marginBottom: "8px",
   },
-  upText: {
+  ratingText: {
     marginLeft: "4px",
   },
 }));

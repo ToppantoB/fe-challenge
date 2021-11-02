@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   placeText: {
     marginLeft: "8px",
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: 'calc(100% - 100px)'
   },
   priceText: {
     margin: "0px 8px 0px auto",

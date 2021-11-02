@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 
     "& .MuiIconButton-root": {
-      border: '1px solid #DDDDDD',
+      border: `1px solid ${theme.palette.secondary.main}`,
       boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.16)",
     },
   },
