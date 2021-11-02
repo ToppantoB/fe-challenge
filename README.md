@@ -2,7 +2,7 @@ After pulling the repo and installing the packages with:
 
 ### `yarn install`
 
-you can run the prject with: 
+you can run the project with: 
 
 ### `yarn start`
 
