@@ -69,8 +69,7 @@ const ActivitySearchTopbar = () => {
   const handleDateChange = (value: Date | null) => {
     dispatch(setDate(value ? value.toString() : value));
   };
-
-  ///
+  
   const [open, setOpen] = React.useState(false);
 
   const openDialog = () => {
@@ -80,8 +79,6 @@ const ActivitySearchTopbar = () => {
   const closeDialog = () => {
     setOpen(false);
   };
-
-  ///
 
   return (
     <div className={style.formContainer}>

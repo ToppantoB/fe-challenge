@@ -4,8 +4,13 @@ import Ratings from "../Ratings";
 import capitalize from "@mui/utils/capitalize";
 
 import useStyles from "./style";
+import { Activity } from "../../types";
 
-const SportTile = ({ data }: any) => {
+type SportTileProps = {
+  data: Activity
+}
+
+const SportTile = ({ data }: SportTileProps) => {
   const style = useStyles();
 
   const startTime = new Date(data.startTime).toUTCString().slice(0, 11);
